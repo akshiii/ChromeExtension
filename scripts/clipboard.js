@@ -4,7 +4,14 @@ let text = "";
 let clearClipbard = false;
 document.addEventListener("keydown", async function copyToClipBoard(event) {
   console.log("Keydown ");
-  if (event.ctrlKey && (event.key === "c" || event.key === "C")) {
+  if (
+    event.ctrlKey &&
+    event.shiftKey &&
+    (event.key === "c" || event.key === "C")
+  ) {
+    if (clearClipbard) {
+      text = "";
+    }
     const clipboardContents = await navigator.clipboard.readText();
     console.log("Clipboard contents = ", clipboardContents);
     text = text == "" ? clipboardContents : text + "\n" + clipboardContents;
