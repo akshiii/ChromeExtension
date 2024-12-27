@@ -18,7 +18,7 @@
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js", "scripts/clipboard.js"],
+      "js": ["scripts/content.js", "scripts/contentScript.js"],
       "matches": [
         "https://developer.chrome.com/*",
         "https://www.linkedin.com/*",
