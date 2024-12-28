@@ -10,6 +10,13 @@ window.addEventListener("load", (event) => {
 
 function onCheckboxToggle(event) {
   console.log("on checkbox change = ", event.target.checked);
+  chrome.storage.local.set({
+    clipboard_enabled: event.target.checked,
+  });
+
+  chrome.storage.local.get(["clipboard_enabled"]).then((result) => {
+    console.log("Value is " + result.key.enable_clipboard);
+  });
 
   navigator.serviceWorker.ready.then((registration) => {
     console.log("Sending msg");
